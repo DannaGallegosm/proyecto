@@ -1,0 +1,132 @@
+{% include 'sitio/cabecera.html' %} 
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agregar Venta</title>
+  <style>
+    /* Estilo general del cuerpo */
+    body {
+
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    /* Contenedor principal */
+    .container {
+        
+      width: 60%;
+      margin: 20px auto;
+      background-color: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    /* Encabezado */
+    h1 {
+      text-align: center;
+      color: lightgreen;
+      margin-bottom: 20px;
+    }
+    /* Títulos de secciones */
+    h2 {
+      color: lightgreen;
+      border-bottom: 2px solid #32CD32;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    /* Campos de texto e input */
+    input[type="text"],
+    input[type="number"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    /* Botón de guardar */
+    button {
+      width: 100%;
+      background-color: lightgreen;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #28a745;
+    }
+    /* Estilo para cada sección */
+    .section {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    /* Etiquetas */
+    label {
+      font-weight: bold;
+      color: #333;
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Agregar Venta</h1>
+    <form action="/datosventas/guardar" method="POST">
+      <!-- Sección 1: Comprobante -->
+      <div class="section">
+        <h2>Comprobante</h2>
+        
+
+        <label for="txtFecha">Fecha</label>
+        <input type="date" id="txtFecha" name="txtFecha" required aria-describedby="helpId">
+      </div>
+      <!-- Sección 2: Datos del Cliente -->
+      <div class="section">
+        <h2>Datos del Cliente</h2>
+        <label for="txtNombre">Nombre y Apellido</label>
+        <input type="text" id="txtNombre" name="txtNombre" required aria-describedby="helpId" placeholder="Escriba el Nombre y Apellido">
+        <label for="txtCelular">Número de Teléfono</label>
+        <input type="number" id="txtCelular" name="txtCelular" required aria-describedby="helpId">
+        <label for="txtDireccion">Dirección</label>
+        <input type="text" id="txtDireccion" name="txtDireccion" required aria-describedby="helpId">
+      </div>
+      <!-- Sección 3: Datos de Cantidad -->
+      <div class="section">
+        <h2>Datos de Cantidad</h2>
+        <!--Color1-->
+       
+        <label for="txtAmarillos">Amarillos</label>
+        <input type="number" id="txtAmarillos" name="txtAmarillos" required aria-describedby="helpId" placeholder="Escriba la cantidad de tamales">
+        <!--Color2-->
+       
+        <label for="txtVerdes">Verdes</label>
+        <input type="number" id="txtVerdes" name="txtVerdes" required aria-describedby="helpId" placeholder="Escriba la cantidad de tamales">
+        <!--Color3-->
+        
+        <label for="txtRojos">Rojos</label>
+        <input type="number" id="txtRojos" name="txtRojos" required aria-describedby="helpId" placeholder="Escriba la cantidad de tamales">
+      </div>
+      <!-- Sección 4: Total y Guardar -->
+      <div class="section">
+        <h2>Total</h2>
+        <label for="txtTotal">Valor Total</label>
+        <input type="txtTotal" id="txtTotal" name="txtTotal" required aria-describedby="helpId">
+        <button type="submit">Guardar</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+        
+
+
+{% include 'sitio/pie.html' %} 

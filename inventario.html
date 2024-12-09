@@ -1,0 +1,117 @@
+{% include 'sitio/cabecera.html' %} 
+
+<br>
+<style>
+
+    body {
+       
+        background-color:  #b8ecc1;
+        margin-top: 50;
+        padding: 20px;
+     }
+ </style>
+<div class="container">
+    <div class="row">
+        <div
+            class="col-md-4">
+            <div class="card">
+                <div class="card-header">Datos del cliente</div>
+                <div class="card-body">
+
+                    <form action="/inventario/guardar" method="post">
+
+                        <div class="mb-3">
+                            <label for="txtFecha" class="form-label">Fecha:</label>
+                            <input type="date" class="form-control" id="txtFecha" name="txtFecha" required aria-describedby="helpId" placeholder="Fecha">
+                            </div>
+
+                            <div class="mb-3">
+                            <label for="txtAmarillos" class="form-label">Cantidad tamales Amarillos:</label>
+                            <input type="number" class="form-control" id="txtAmarillos" name="txtAmarillos" aria-describedby="helpId">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="txtRojos" class="form-label">Cantidad tamales Rojos:</label>
+                                <input type="number" class="form-control" id="txtRojos" name="txtRojos" aria-describedby="helpId">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="txtVerdes" class="form-label">Cantidad tamales Verdes:</label>
+                                    <input type="number" class="form-control" id="txtVerdes" name="txtVerdes" aria-describedby="helpId">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="txtTotal" class="form-label">Valor total</label>
+                                        <input type="number" class="form-control" id="txtTotal" name="txtTotal" aria-describedby="helpId">
+                                        </div>  
+
+                                <button type="submit" class="btn btn-success"> guardar </button>
+                                    
+                    </form>
+
+                </div>
+                <div class="card-footer text-muted"></div>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+
+            <div
+                class="table"
+            >
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>id</th> 
+                            <th>fecha</th>
+                            <th>Tamales Amarillos</th>
+                            <th>Tamales Rojos</th>
+                            <th>Tamales Verdes</th>
+                            <th>Cantidad Total </th>
+                            <th>Acción</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for inventario in inventario %} 
+                        <tr>
+                            <td>{{ inventario [0] }}</td>
+                            <td>{{ inventario [1] }}</td>
+                            <td>{{ inventario [2] }}</td>
+                            <td>{{ inventario [3] }}</td>
+                            <td>{{ inventario [4] }}</td>
+                            <td>{{ inventario [5] }}</td>
+                            <td>
+
+                                <form action="/editivnentario" method="post">
+                                    <input type="hidden" name="txtID" id="txtID" value="{{ inventario [0] }}">
+                                        <button type="submit" class="btn btn-info">Editar</button>
+                                </form>
+
+                             </td>  
+                             <td>
+                                <form action="/inventario/borrar" method="post">
+                                <input value="{{ inventario [0] }}" type="hidden" name="txtID" id="txtID">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+
+
+
+                                
+                                </form>
+
+                            </td>    
+                            
+                        </tr>
+                        {% endfor %} 
+                        
+                    </tbody>
+                </table>
+            </div>
+            
+
+        </div>
+        
+    </div>
+</div>
+
+{% include 'sitio/pie.html' %} 

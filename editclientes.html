@@ -1,0 +1,66 @@
+{% include 'sitio/cabecera.html' %} 
+
+<br>
+
+<style>
+
+    body {
+       
+        background-color:  #b8ecc1;
+        margin-top: 50;
+        padding: 20px;
+     }
+ </style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div
+            class="col-md-4">
+            <div class="card">
+                <div class="card-header">Datos del cliente</div>
+                <div class="card-body">
+
+                    <form action="/actualizarclientes" method="post">
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nombre:</label>
+                            <input type="hidden" class="form-control" id="txtId" name="txtId" value="{{ cliente.0 }}"> <!-- Este campo es oculto para enviar el id del cliente al formulario -->
+                            <input type="text" class="form-control" id="txtNombre" name="txtNombre" aria-describedby="helpId" placeholder="Escriba el Nombre y Apellido" required value="{{ cliente.1}}" >
+                            </div>
+
+                            <div class="mb-3">
+                            <label for="txtCelular" class="form-label">Celular:</label>
+                            <input type="text" class="form-control" id="txtCelular" name="txtCelular" aria-describedby="helpId" placeholder="Escriba el Numero de celular" value="{{ cliente.2}}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="txtDireccion" class="form-label">Dirección:</label>
+                                <input type="text" class="form-control" id="txtDireccion" name="txtDireccion" aria-describedby="helpId" placeholder="Escriba la dirección" value="{{ cliente.3}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="txtCantidad" class="form-label">Cantidad:</label>
+                                    <input type="text" class="form-control" id="txtCantidad" name="txtCantidad" aria-describedby="helpId" placeholder="Escriba la Cantidad" value="{{ cliente.4}}">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="txtFecha" class="form-label">Fecha:</label>
+                                        <input type="text" class="form-control" id="txtFecha" name="txtFecha" aria-describedby="helpId" placeholder="Escriba la Fecha del pedido" value="{{ cliente.5}}">
+                                        </div>  
+
+                                <button type="submit" class="btn btn-success"> Actualizar </button>
+                                    
+                    </form>
+
+                </div>
+            </div>    
+        </div> 
+        <div class="col-md-4">
+
+        </div>
+    </div>       
+
+{% include 'sitio/pie.html' %}

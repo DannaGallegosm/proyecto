@@ -1,0 +1,144 @@
+{% include 'sitio/cabecera.html' %} 
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventas</title>
+  <style>
+
+    
+    /* Estilo para el cuerpo */
+    body {
+      font-family: Arial, sans-serif; 
+      background-color: #e7fbf0; 
+      margin: 0;
+      padding: 0;
+    }
+    /* Estilo para el contenedor principal */
+    .container {
+      width: 100%;
+      margin: 20px auto;
+      text-align: center;
+    }
+    /* Estilo para el encabezado */
+    h1 {
+      color: lightgreen; 
+    }
+    /* Estilo para la tabla */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      background-color: white;
+    }
+    /* Estilo para las celdas de la tabla */
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    /* Estilo para los encabezados de la tabla */
+    th {
+      background-color: lightgreen;
+      color: white;
+    }
+    /* Estilo para los botones de Eliminar y Editar */
+    .action-button {
+      background-color: #f44336; 
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px; 
+      font-size: 14px;
+    }
+    .action-button.edit {
+      background-color: lightgreen; 
+    }
+
+    .action-button:hover {
+      opacity: 0.8; 
+    }
+    /* Estilo para el botón "Agregar" */
+    .add-button {
+      background-color: lightgreen;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    .add-button:hover {
+      background-color: #28a745; 
+    }
+    
+    
+  </style>
+    
+</head>
+<body>
+  <div class="container">
+    <img src="https://i.pinimg.com/originals/bb/7f/83/bb7f831577c2646884e30c0d3862eb2d.jpg" width="150"/> 
+    <h1>TAMALES JOHAN</h1>
+    <p>Listado de ventas</p>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Fecha</th>
+          <th>Nombre y Apellido</th>
+          <th>Celular</th>
+          <th>Direccion</th>
+          <th>Amarrillos</th>
+          <th>Verdes</th>
+          <th>Rojos</th>
+          <th>Valor Total</th> 
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for venta in ventas %} 
+       
+            <tr>
+                <td>{{ venta [0] }}</td>
+                <td>{{ venta [1] }}</td>
+                <td>{{ venta [2] }}</td>
+                <td>{{ venta [3] }}</td>
+                <td>{{ venta [4] }}</td>
+                <td>{{ venta [5] }}</td>
+                <td>{{ venta [6] }}</td>
+                <td>{{ venta [7] }}</td>
+                <td>{{ venta [8] }}</td>
+                <td>
+                    <form action="/ventas/borrar" method="post">
+                    <input value="{{ venta [0] }}" type="hidden" name="txtID" id="txtID">
+                    <button
+                        type="submit"class="btn btn-danger">eliminar</button>
+                    </form>
+                    <form action="/ventas/editar" method="post">
+                    <input value="{{ venta [0] }}" type="hidden" name="txtID" id="txtID">
+                    <button
+                        type="submit" class="btn btn-success">editar</button>
+                    </form>
+
+
+                </td>
+            </tr>
+        {% endfor %} 
+        
+       
+      </tbody>
+    </table>
+    <!-- Botón para agregar cliente -->
+    <a class=add-button href="/datosventas">Agregar</a>
+
+</body>
+</html>
+
+
+{% include 'sitio/pie.html' %} 

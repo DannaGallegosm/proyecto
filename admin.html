@@ -1,0 +1,77 @@
+{% include 'sitio/cabecera.html' %} 
+<br><br>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bienvenidos</title>
+    <style>
+
+        body {
+           
+            background-color: lightgreen;
+            margin-top: 50;
+            padding: 20px;
+         }
+            
+        
+        .card {
+            justify-content: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            display: center;
+            text-align: center;
+            background-color: white;
+            border-radius: 30px;
+            padding: 60px;
+            width: 70%; 
+            max-width: 800px; 
+        }
+        .logo {
+            
+            background-color: #ffffff; 
+            border-radius: 50%;
+            width: 150px; 
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 30px;
+        }
+        .logo img {
+            
+            width: 100%; 
+            height: auto;
+        }
+        .title {
+            
+            color: lightgreen;
+            font-size: 3.5em; 
+            font-weight: bold;
+            margin: 0;
+        }
+        .subtitle {
+            
+            font-size: 2em; 
+            color: #333;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    
+
+
+    <div class="card">
+        <div class="logo">
+            <img src="https://i.pinimg.com/originals/bb/7f/83/bb7f831577c2646884e30c0d3862eb2d.jpg" alt="Logo">
+        </div>
+        <div class="title">TAMALES JOHAN</div>
+        <div class="subtitle">Eficiencia Calidad<br>y sabor para tus gustos</div>
+    </div>
+</body>
+</html>
+        
+{% include 'sitio/pie.html' %} 

@@ -1,0 +1,121 @@
+
+{% include 'sitio/cabecera.html' %} 
+<br>
+
+<style>
+
+    body {
+       
+        background-color:  #b8ecc1;
+        margin-top: 50;
+        padding: 20px;
+     }
+ </style>
+
+<div class="container">
+    <div class="row">
+        <div
+            class="col-md-4">
+            <div class="card">
+                <div class="card-header">Datos del cliente</div>
+                <div class="card-body">
+
+                    <form action="/clientes/guardar" method="post">
+
+                        <div class="mb-3">
+                            <label for="txtNombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="txtNombre" name="txtNombre" aria-describedby="helpId" placeholder="Escriba el Nombre y Apellido">
+                            </div>
+
+                            <div class="mb-3">
+                            <label for="txtCelular" class="form-label">Celular:</label>
+                            <input type="text" class="form-control" id="txtCelular" name="txtCelular" aria-describedby="helpId" placeholder="Escriba el Numero de celular">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="txtDireccion" class="form-label">Dirección:</label>
+                                <input type="text" class="form-control" id="txtDireccion" name="txtDireccion" aria-describedby="helpId" placeholder="Escriba la dirección">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="txtCantidad" class="form-label">Cantidad:</label>
+                                    <input type="text" class="form-control" id="txtCantidad" name="txtCantidad" aria-describedby="helpId" placeholder="Escriba la Cantidad">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="txtFecha" class="form-label">Fecha:</label>
+                                        <input type="text" class="form-control" id="txtFecha" name="txtFecha" aria-describedby="helpId" placeholder="Escriba la Fecha del pedido">
+                                        </div>  
+
+                                <button type="submit" class="btn btn-success"> crear </button>
+                                    
+                    </form>
+
+                </div>
+                <div class="card-footer text-muted"></div>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+
+            <div
+                class="table"
+            >
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>id</th> 
+                            <th>Nombre</th>
+                            <th>Celular</th>
+                            <th>Dirección</th>
+                            <th>Cantidad</th>
+                            <th>Fecha</th>
+                            <th>Acción</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cliente in clientes %} 
+                        <tr>
+                            <td>{{ cliente [0] }}</td>
+                            <td>{{ cliente [1] }}</td>
+                            <td>{{ cliente [2] }}</td>
+                            <td>{{ cliente [3] }}</td>
+                            <td>{{ cliente [4] }}</td>
+                            <td>{{ cliente [5] }}</td>
+
+
+                            <td>
+
+                                
+                                <form action="/editclientes" method="post">
+                                    <input type="hidden" name="txtID" id="txtID" value="{{ cliente [0] }}">
+                                        <button type="submit" class="btn btn-info">Editar</button>
+                                </form>
+
+                             </td>  
+                             <td>
+
+                                <form action="/clientes/borrar" method="post">
+                                <input value="{{ cliente [0] }}" type="hidden" name="txtID" id="txtID">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            
+                                    </form>
+
+                            </td>    
+                            
+                        </tr>
+                        {% endfor %} 
+                        
+                    </tbody>
+                </table>
+            </div>
+            
+
+        </div>
+        
+    </div>
+</div>
+
+{% include 'sitio/pie.html' %} 
